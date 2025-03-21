@@ -1,0 +1,10 @@
+
+
+VALEU_HOTEL = 200 # R$/H
+ENG_ASS = 24.45 # R$/H
+VALUE_ENG = 56.32 # R$/H
+VALUE_TREINEE = 13.27 # R$/H
+UBER = 100 # R$/H
+FOOD = 100 # R$/D
+ART_LOW = 103.03 # Inferior a 15.000
+ART_HIGH = 271.71 # Superior a 15.000

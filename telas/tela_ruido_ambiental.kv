@@ -1,0 +1,243 @@
+<TelaRuidoAmbiental>:
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0.87, 0.93, 0.98, 1  # Light primary color (#bbdefb)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        orientation: "vertical"
+        padding: 25
+        spacing: 20
+
+        # Barra superior onde o botão será colocado
+        BoxLayout:
+            size_hint_y: None
+            height: 50  # Altura fixa para o menu superior
+            padding: 10
+            spacing: 10
+            pos_hint: {'top': 1}  # Mantém no topo
+
+            Button:
+                font_name: app.FONT_PATH
+                id: go_menu
+                size_hint: None, None
+                width: 100  # Largura fixa para não esticar
+                height: 50  # Altura fixa
+                text: "Menu"
+                background_normal: ""  # Remove o background padrão
+                background_color: 0, 0, 0, 0
+                color: 1, 1, 1, 1
+                font_size: '20sp'
+                bold: True
+                on_press: app.root.current = "menu"
+                canvas.before:
+                    Color:
+                        rgba: 0.13, 0.59, 0.95, 1  # Cor do fundo
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size 
+                        radius: [25]  # Ajuste para arredondar mais ou menos
+
+
+        
+        # Conteúdo principal da tela abaixo do botão
+        BoxLayout:
+            orientation: "vertical"
+            padding: 10
+            spacing: 10
+
+            Label:
+                font_name: app.FONT_PATH
+                text: "Serviço:"
+                color: 0.13, 0.13, 0.13, 1  # Primary text (#212121)
+                font_size: '22sp'
+                bold: True
+                halign: 'center'
+                size_hint_y: None
+                height:30
+
+            TextInput:
+                font_name: app.FONT_PATH
+                hint_text: "Indicar o nome do local do Serviço"
+                id: servico
+                color: 0.13, 0.13, 0.13, 1  # Primary text (#212121)
+                font_size: '18sp'
+                size_hint_y: None
+                height: 60
+                background_color: 0.87, 0.93, 0.98, 1  # Light primary color (#bbdefb)
+                foreground_color: 0.13, 0.13, 0.13, 1  # Primary text (#212121)
+                padding: [12, 12]
+                border: [2, 2, 2, 2]
+                cursor_color: 0.33, 0.43, 0.99, 1  # Accent color (#536dfe)
+                border_color: 0.33, 0.43, 0.99, 1  # Accent color (#536dfe)
+
+            BoxLayout:
+                size_hint_y: None
+                padding: 10
+                spacing: 10
+
+                Button:
+                    font_name: app.FONT_PATH
+                    id: btn_bate_volta
+                    size_hint: .05, .9
+                    text: "Listagem Bate e Volta"
+                    background_normal: ""  # Remove o background padrão
+                    background_color: 0, 0, 0, 0
+                    color: 1, 1, 1, 1
+                    font_size: '20sp'
+                    bold: True
+                    size_hint_x: 0.5
+                    height: 50
+                    size_hint_y: None
+                    on_press: root.set_bate_volta(self)
+                    canvas.before:
+                        Color:
+                            rgba: 0.13, 0.59, 0.95, 1  # Cor do fundo
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [25]  # Ajuste para arredondar mais ou menos
+
+                Button:
+                    id: btn_padrao
+                    size_hint: .05, 0.9
+                    font_name: app.FONT_PATH
+                    text: "Listagem Padrão"
+                    background_normal: ""  # Remove o background padrão
+                    background_color: 0, 0, 0, 0
+                    color: 1, 1, 1, 1
+                    font_size: '20sp'
+                    bold: True
+                    size_hint_x: 0.5
+                    height: 50
+                    size_hint_y: None
+                    on_press: root.set_padrao(self)
+                    canvas.before:
+                        Color:
+                            rgba: 0.13, 0.59, 0.95, 1  # Cor do fundo
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [25]  # Ajuste para arredondar mais ou menos
+
+            Label:
+                font_name: app.FONT_PATH
+                text: "Origem:"
+                color:  0.13, 0.13, 0.13, 1
+                font_size: '22sp'
+                bold: True
+                halign: 'center'
+                size_hint_y: None
+                height:30
+            TextInput:
+                font_name: app.FONT_PATH
+                hint_text:"Local de partida do colaborador"
+                id: origin
+                color: 0.13, 0.13, 0.13, 1  # Primary text (#212121)
+                font_size: '18sp'
+                size_hint_y: None
+                height: 60
+                background_color: 0.87, 0.93, 0.98, 1  # Light primary color (#bbdefb)
+                foreground_color: 0.13, 0.13, 0.13, 1  # Primary text (#212121)
+                padding: [12, 12]
+                border: [2, 2, 2, 2]
+                cursor_color: 0.33, 0.43, 0.99, 1  # Accent color (#536dfe)
+                border_color: 0.33, 0.43, 0.99, 1  # Accent color (#536dfe)
+
+            Label:
+                font_name: app.FONT_PATH
+                text: "Base para retorno:"
+                color:  0.13, 0.13, 0.13, 1
+                font_size: '22sp'
+                bold: True
+                halign: 'center'
+                size_hint_y: None
+                height:30
+            TextInput:
+                font_name: app.FONT_PATH
+                hint_text:"Local de retorno do colaborador"
+                id: destination
+                color: 0.13, 0.13, 0.13, 1  # Primary text (#212121)
+                font_size: '18sp'
+                size_hint_y: None
+                height: 60
+                background_color: 0.87, 0.93, 0.98, 1  # Light primary color (#bbdefb)
+                foreground_color: 0.13, 0.13, 0.13, 1  # Primary text (#212121)
+                padding: [12, 12]
+                border: [2, 2, 2, 2]
+                cursor_color: 0.33, 0.43, 0.99, 1  # Accent color (#536dfe)
+                border_color: 0.33, 0.43, 0.99, 1  # Accent color (#536dfe)
+
+            Label:
+                font_name: app.FONT_PATH
+                text: "Lugares a serem visitados:"
+                color:  0.13, 0.13, 0.13, 1
+                font_size: '22sp'
+                bold: True
+                halign: 'center'
+                size_hint_y: None
+                height:30
+            TextInput:
+                font_name: app.FONT_PATH
+                hint_text: "Colocar todos os pontos a serem visitados nesse serviço separados por barra (/)... EXEMPLO>>> (vacaria RS/ santa maria rs)"
+                id: waypoints
+                color: 0.13, 0.13, 0.13, 1  # Primary text (#212121)
+                font_size: '18sp'
+                size_hint_y: None
+                height: 60
+                background_color: 0.87, 0.93, 0.98, 1  # Light primary color (#bbdefb)
+                foreground_color: 0.13, 0.13, 0.13, 1  # Primary text (#212121)
+                padding: [12, 12]
+                border: [2, 2, 2, 2]
+                cursor_color: 0.33, 0.43, 0.99, 1  # Accent color (#536dfe)
+                border_color: 0.33, 0.43, 0.99, 1  # Accent color (#536dfe)
+
+
+            BoxLayout:
+                size_hint_y: None
+                orientation: 'horizontal'
+
+                Button:
+                    font_name: app.FONT_PATH
+                    text: "Calcular Rota"
+                    color: 0.13, 0.13, 0.13, 1
+                    background_normal: ""  # Remove o background padrão
+                    background_color: 0, 0, 0, 0
+                    color: 1, 1, 1, 1
+                    font_size: '20sp'
+                    bold: True
+                    size_hint_x: 0.5
+                    height: 50
+                    size_hint_y: None
+                    on_press: root.start_calculation()
+                    canvas.before:
+                        Color:
+                            rgba: 0.13, 0.59, 0.95, 1  # Cor do fundo
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [25]  # Ajuste para arredondar mais ou menos
+
+                Button:
+                    font_name: app.FONT_PATH
+                    text: "reset"
+                    color: 0.13, 0.13, 0.13, 1
+                    background_normal: ""  # Remove o background padrão
+                    background_color: 0, 0, 0, 0
+                    color: 1, 1, 1, 1
+                    font_size: '20sp'
+                    bold: True
+                    size_hint_x: 0.5
+                    height: 50
+                    size_hint_y: None
+                    on_press: root.all_reset()
+                    canvas.before:
+                        Color:
+                            rgba: 1, 0, 0, 1  # Cor do fundo
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [25]  # Ajuste para arredondar mais ou menos
+            

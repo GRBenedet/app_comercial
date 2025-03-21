@@ -1,0 +1,46 @@
+<TelaMenu>:
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0.87, 0.93, 0.98, 1  # Light primary color (#bbdefb)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        orientation: "vertical"
+        padding: 25
+        spacing: 20
+        Label:
+            font_name: app.FONT_PATH
+            text: "Ziel Comercial"
+            color: 0.13, 0.13, 0.13, 1  # Primary text (#212121)
+            font_size: '50sp'
+            bold: True
+            halign: 'center'
+            size_hint_y: None
+            height:30
+
+        BoxLayout:
+            padding: 10
+            spacing: 10
+
+            Button:
+                font_name: app.FONT_PATH
+                id: go_ruido_ambiental
+                size_hint: .05, .9
+                text: "Ruido Ambiental"
+                background_normal: ""  # Remove o background padrão
+                background_color: 0, 0, 0, 0
+                color: 1, 1, 1, 1
+                font_size: '20sp'
+                bold: True
+                size_hint_x: 0.5
+                height: 50
+                size_hint_y: None
+                on_press: app.root.current = "ruido_ambiental"
+                canvas.before:
+                    Color:
+                        rgba: 0.13, 0.59, 0.95, 1  # Cor do fundo
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [25]  # Ajuste para arredondar mais ou menos
